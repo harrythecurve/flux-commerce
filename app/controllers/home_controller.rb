@@ -7,4 +7,8 @@ class HomeController < ApplicationController
   def widget_stats
     render json: { sale_count: Sale.count, visitor_count: Visitor.count }
   end
+
+  def aggregate_dashboard
+
+  end
 end
