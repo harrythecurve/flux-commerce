@@ -1,9 +1,25 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# Seed visitors
+visitors = []
+1000.times do
+  days_ago = rand(0..30)
+  visitors << { name: Faker::Name.name, created_at: days_ago.days.ago }
+end
+
+Visitor.insert_all(visitors)
+
+# Seed Items
+Item.find_or_create_by(product: 'Phone', cost: 550)
+Item.find_or_create_by(product: 'Laptop', cost: 1100)
+Item.find_or_create_by(product: 'TV', cost: 400)
+Item.find_or_create_by(product: 'Headphones', cost: 100)
+
+# Seed sales
+sales = []
+items = Item.all
+1500.times do
+  days_ago = rand(0..30)
+  item = items.sample
+  sales << { visitor_id: Visitor.order("RANDOM()").first.id, item_id: item.id, revenue: item.cost, profit: (item.cost * 0.3).round, created_at: days_ago.days.ago }
+end
+
+Sale.insert_all(sales)
