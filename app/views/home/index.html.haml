@@ -1,0 +1,22 @@
+.container.mt-5.d-flex.justify-content-center
+  .widget
+    %h5{id: 'saleCount'}= @sale_count
+    %p Total Sales
+  .widget
+    %h5{id: 'visitorCount'}= @visitor_count
+    %p Total Visitors
+
+:javascript
+  document.addEventListener("DOMContentLoaded", function() {
+    function updateWidgets() {
+      fetch('/widget-stats')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('saleCount').textContent = data.sale_count;
+          document.getElementById('visitorCount').textContent = data.visitor_count;
+        });
+    }
+
+    // Update the count every 5 seconds
+    setInterval(updateWidgets, 5000);
+  });

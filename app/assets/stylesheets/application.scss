@@ -13,4 +13,40 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap"
+@import "bootstrap";
+
+:root {
+  --bs-body-font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #eee;
+}
+
+.widget {
+  width: 15rem;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin: 1rem 2rem;
+  box-shadow:
+    0.5px 0.5px 2px rgba(0, 0, 0, 0.021),
+    1.3px 1.3px 5.6px rgba(0, 0, 0, 0.03),
+    3px 3px 13.6px rgba(0, 0, 0, 0.039),
+    10px 10px 45px rgba(0, 0, 0, 0.06)
+  ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h5 {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  p {
+    font-size: 1.5rem;
+    color: #888;
+    margin-bottom: 0;
+  }
+}
