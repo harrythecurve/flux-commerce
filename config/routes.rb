@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
+  get "influx-dashboard" => "home#influx_dashboard"
   get "aggregate-dashboard" => "home#aggregate_dashboard"
   get "widget-stats" => "home#widget_stats"
 end

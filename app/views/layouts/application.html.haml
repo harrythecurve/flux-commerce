@@ -22,5 +22,5 @@
           %li.nav-item
             %a.nav-link{href: aggregate_dashboard_path, class: current_page?(aggregate_dashboard_path) ? 'active' : nil} Aggregate dashboard
           %li.nav-item
-            %a.nav-link{href: "#"} Influx dashboard
+            %a.nav-link{href: influx_dashboard_path, class: current_page?(influx_dashboard_path) ? 'active' : nil} Influx dashboard
     = yield
