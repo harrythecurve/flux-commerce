@@ -108,9 +108,6 @@ class HomeController < ApplicationController
 
     stream.each do |record|
       date = record.values['_time'].to_date
-      puts '#' * 100
-      puts date
-      puts '#' * 100
       data[date] = record.values['_value'].to_i
     end
 
